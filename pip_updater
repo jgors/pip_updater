@@ -28,6 +28,7 @@ if not (update_all_pkgs or update_only_local_pkgs):
     print("Error: need to specify an argument, see: pip_updater -h") 
 
 local_install_area = site.getuserbase()
+#site_pkgs = site.getsitepackages()
 
 
 def main():
@@ -35,6 +36,8 @@ def main():
     for pkg in pkgs:
         pkg_name = pkg.project_name
         if update_all_pkgs:
+            #for site_pkgs_area in site_pkgs:
+                #if site_pkgs_area in pkg.location:
             print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
             call(["pip", "install", "--upgrade", pkg_name])
         elif update_only_local_pkgs:
