@@ -2,7 +2,7 @@
 
 ####You can update all packages:
 
-`pip_updater -e`
+`pip_updater -a`
 
 ####Or update packages installed locally for your user:
 
