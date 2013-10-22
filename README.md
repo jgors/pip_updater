@@ -15,7 +15,7 @@
 # to install system-wide:
 python setup.py install
 
-# to install for just your user (eg. if you don't have write privileges on a shared filesystem):
+# to install just for your user (eg. if you don't have write privileges on a shared filesystem):
 python setup.py install --user
 ```
 
@@ -41,5 +41,5 @@ suggested as per [PEP370](http://www.python.org/dev/peps/pep-0370/) -- particula
 `%APPDATA%/Python/Scripts`
 
 
-...enjoy.
+...hope this helps.
 
