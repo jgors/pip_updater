@@ -1,6 +1,15 @@
-###A simple script to update all packages that were installed with pip.
+##Simple script to update packages installed with pip.
 
-####To install `pip_updater` just clone the repo, then run:
+####You can update all packages:
+
+`pip_updater -e`
+
+####Or update packages installed locally for your user:
+
+`pip_updater -l`
+
+
+###To install `pip_updater` just clone the repo, then run:
 
 ```
 # to install system-wide:
