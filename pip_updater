@@ -30,20 +30,17 @@ if not (update_all_pkgs or update_only_local_pkgs):
 local_install_area = site.getuserbase()
 
 
-def updater(pkg_name):
-    print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
-    call(["pip", "install", "--user", "--upgrade", pkg_name])
-
-
 def main():
     pkgs = pip.get_installed_distributions()
     for pkg in pkgs:
         pkg_name = pkg.project_name
         if update_all_pkgs:
-            updater(pkg_name)
+            print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
+            call(["pip", "install", "--upgrade", pkg_name])
         elif update_only_local_pkgs:
             if local_install_area in pkg.location:
-                updater(pkg_name)
+                print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
+                call(["pip", "install", "--user", "--upgrade", pkg_name])
 
 if __name__ == '__main__':
     main()
