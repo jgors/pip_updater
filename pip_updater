@@ -9,9 +9,9 @@ Purpose: to update packages installed w/ pip.
 """
 
 import pip
-import site
 import argparse
 from subprocess import call
+#import site
 
 
 parser = argparse.ArgumentParser(description="Use to update pip packages.")
@@ -27,23 +27,28 @@ update_only_local_pkgs = args.local_pkgs
 if not (update_all_pkgs or update_only_local_pkgs):
     print("Error: need to specify an argument, see: pip_updater -h") 
 
-local_install_area = site.getuserbase()
+#local_install_area = site.getuserbase()
 #site_pkgs = site.getsitepackages()
-
+local_install_area = pip.util.user_site
+site_pkgs = pip.util.site_packages
 
 def main():
     pkgs = pip.get_installed_distributions()
     for pkg in pkgs:
         pkg_name = pkg.project_name
-        if update_all_pkgs:
-            #for site_pkgs_area in site_pkgs:
-                #if site_pkgs_area in pkg.location:
-            print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
-            call(["pip", "install", "--upgrade", pkg_name])
-        elif update_only_local_pkgs:
-            if local_install_area in pkg.location:
-                print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
-                call(["pip", "install", "--user", "--upgrade", pkg_name])
+        try:
+            if update_all_pkgs:
+                #for site_pkgs_area in site_pkgs:
+                    #if site_pkgs_area in pkg.location:
+                if site_pkgs in pkg.location:
+                    print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
+                    call(["pip", "install", "--upgrade", pkg_name])
+            elif update_only_local_pkgs:
+                if local_install_area in pkg.location:
+                    print("\n{0}\n\t\tUpdating {1}\n{0}".format('-'*50, pkg_name))
+                    call(["pip", "install", "--user", "--upgrade", pkg_name])
+        except Exception, e:
+            print(e)
 
 if __name__ == '__main__':
     main()
