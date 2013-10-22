@@ -1,4 +1,4 @@
-##Simple script to update packages installed with pip.
+##Simple package to update pip packages.
 
 ####You can update all packages:
 
