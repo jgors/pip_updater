@@ -13,7 +13,7 @@
 
 ```
 # to install system-wide:
-python setup.py install --user
+python setup.py install
 
 # to install for just your user (eg. if you don't have write privileges on a shared filesystem):
 python setup.py install --user
