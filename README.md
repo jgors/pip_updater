@@ -4,6 +4,8 @@
 
 `pip_updater -a`
 
+(not sure if you'd need to be logged into your shell with sudo for this, as I only install pip packages locally.)
+
 ####Or update packages installed locally for your user:
 
 `pip_updater -l`
