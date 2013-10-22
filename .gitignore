@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+
+# from building & installing
+*.egg
+*.egg-info
+build
+dist
+sdist
