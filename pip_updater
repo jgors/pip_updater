@@ -36,6 +36,8 @@ def main():
     pkgs = pip.get_installed_distributions()
     for pkg in pkgs:
         pkg_name = pkg.project_name
+        if pkg_name == 'pip-updater':
+            continue
         try:
             if update_all_pkgs:
                 #for site_pkgs_area in site_pkgs:
