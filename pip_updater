@@ -15,7 +15,7 @@ from subprocess import call
 
 
 parser = argparse.ArgumentParser(description="Use to update pip packages.")
-parser.add_argument('--version', action='version', version='%(prog)s 1.0')
+parser.add_argument('--version', action='version', version='%(prog)s 1.1')
 
 group = parser.add_mutually_exclusive_group()
 group.add_argument("-a", "--all_pkgs", action="store_true", help="update all packages.")
@@ -29,8 +29,8 @@ if not (update_all_pkgs or update_only_local_pkgs):
 
 #local_install_area = site.getuserbase()
 #site_pkgs = site.getsitepackages()
-local_install_area = pip.util.user_site
-site_pkgs = pip.util.site_packages
+local_install_area = pip.utils.user_site
+site_pkgs = pip.utils.site_packages
 
 def main():
     pkgs = pip.get_installed_distributions()
